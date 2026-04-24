@@ -1,0 +1,30 @@
+{
+  "name": "xyz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "dev": "npm run compile && node build/deploy-commands.ts && node build/main.ts",
+    "start": "node build/main.ts",
+    "compile": "tsc -p ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.1",
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "supabase": "^2.95.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.0"
+  }
+}
