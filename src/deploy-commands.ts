@@ -13,7 +13,7 @@ const {
   } = process.env as { [key: string]: string };
   
   // 環境変数が足りない場合のエラーチェック
-  if (!applicationId || !token || !(GUILD_DEV_ID || GUILD_MAIN_ID)) {
+  if (!applicationId || !token ) {
     throw new Error("Missing environment variables: CLIENT_ID, GUILD_ID, or DISCORD_TOKEN");
   }
 

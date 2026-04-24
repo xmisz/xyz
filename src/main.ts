@@ -2,6 +2,9 @@
 import { Client, Events, GatewayIntentBits, ActivityType, CommandInteraction, TextChannel, ChatInputCommandInteraction } from 'discord.js';
 import fs from 'fs';
 import path from 'path';
+import { serve } from "@hono/node-server";
+import healthCheckServer from "./server";
+import { startHealthCheckCron } from "./cron";
 
 dotenv.config();
 
@@ -96,4 +99,16 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.login(token).catch(error => {
     console.error('ログインに失敗しました:', error);
     process.exit(1);
-});   
+});
+
+// Koyeb用のヘルスチェックサーバーを起動
+serve({
+  fetch: healthCheckServer.fetch,
+  port: 8000,
+});
+
+serve({
+  fetch: healthCheckServer.fetch,
+  port: 8000,
+});
+startHealthCheckCron();
